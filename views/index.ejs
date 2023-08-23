@@ -1,5 +1,18 @@
-<h1>file upload</h1>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file_name" />
-    <button type="submit">Upload</button>
-</form>
+<div class="container">
+    <div class="form_body">
+        <div class="form_box">
+            <div class="form_header">
+                
+            <h1>ShareSync</h1>
+            <a href="/view" class="btn btn-view"> View All</a>
+            </div>
+            <form class="main_form" action="/upload" method="post" enctype="multipart/form-data">
+                <label for="file_name">
+                   <span>Upload your file here</span> 
+                <input type="file" name="file_name" /></label>
+                <button type="submit" class="btn btn-upload">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+
