@@ -45,7 +45,7 @@ app.get('/view', (req, res) => {
 });
 
 
-app.post('/upload', upload.single('file_name'), (req, res) => {
+app.post('/upload', upload.array('file_name'), (req, res) => {
     console.log(req.body);
     console.log(req.file);
 

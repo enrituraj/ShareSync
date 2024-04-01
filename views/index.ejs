@@ -7,12 +7,42 @@
             <a href="/view" class="btn btn-view"> View All</a>
             </div>
             <form class="main_form" action="/upload" method="post" enctype="multipart/form-data">
-                <label for="file_name">
-                   <span>Upload your file here</span> 
-                <input type="file" name="file_name" /></label>
+                <label><span>Upload your file here : </span></label>
+                
+                <label for="file_name" class="custom-file-upload">
+                   <span>Click here to upload </span> 
+                <input type="file" name="file_name" id="file_name" multiple/></label>
+                <div id="selected-images"></div>
+
+                
                 <button type="submit" class="btn btn-upload">Upload</button>
             </form>
         </div>
     </div>
 </div>
 
+<script>
+   
+   document.getElementById('file_name').addEventListener('change', function() {
+    var files = this.files;
+    var imageContainer = document.getElementById('selected-images');
+    imageContainer.innerHTML = '<p>All selected image</p>'; // Clear previous images
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            var img = document.createElement('img');
+            img.src = event.target.result;
+            img.style.maxWidth = '100px'; // Adjust image size as needed
+            img.style.maxHeight = '100px'; // Adjust image size as needed
+            imageContainer.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+
+</script>
