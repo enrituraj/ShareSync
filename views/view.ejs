@@ -12,9 +12,15 @@
             <ul class="file_list">
               <% files.forEach(file => { %>
                 <li class="file">
-                  <% const ext = file.split("."); %>
-                  <%= file.substring(0, 5) + "***" + file.substring(ext[0].length - 3) %>
-                  <a class="btn" href="/download/<%= file %>">Download</a>
+                  <img src="<%= file %>" alt="<%= file %>" style="max-width: 100px; max-height: 100px;">
+                  <div>
+                    <p>
+
+                      <% const ext = file.split("."); %>
+                      <%= file.substring(0, 5) + "***" + file.substring(ext[0].length - 3) %>
+                    </p>
+                    <a class="btn" href="/download/<%= file %>">Download</a>
+                  </div>
                 </li>
               <% }); %>
             </ul>
