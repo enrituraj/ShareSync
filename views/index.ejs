@@ -1,48 +1,181 @@
-<div class="container">
-    <div class="form_body">
-        <div class="form_box">
-            <div class="form_header">
-                
-            <h1>ShareSync</h1>
-            <a href="/view" class="btn btn-view"> View All</a>
-            </div>
-            <form class="main_form" action="/upload" method="post" enctype="multipart/form-data">
-                <label><span>Upload your file here : </span></label>
-                
-                <label for="file_name" class="custom-file-upload">
-                   <span>Click here to upload </span> 
-                <input type="file" name="file_name" id="file_name" multiple/></label>
-                <div id="selected-images"></div>
 
-                
-                <button type="submit" class="btn btn-upload">Upload</button>
-            </form>
+    <div class="min-h-screen flex items-center justify-center pt-16 pb-32 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="space-y-8 mb-12">
+                <h1 class="text-5xl md:text-6xl font-extrabold">
+                    Share Files with 
+                    <span class="gradient-text">Confidence</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-xl text-gray-400">
+                    Fast, secure, and ephemeral file sharing. Your files, your privacy, our priority.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-gray-800/50 backdrop-blur-md p-8 rounded-2xl border border-gray-700">
+                <form class="main_form" action="/upload" method="post" enctype="multipart/form-data">
+                    <div id="drop-zone" class="w-full h-64 border-2 border-dashed border-gray-600 rounded-xl p-12 text-center cursor-pointer hover:border-indigo-500 transition-colors duration-150 pulse-border">
+                        <i class='bx bx-cloud-upload text-6xl text-indigo-400 float-animation'></i>
+                        <p class="mt-4 text-gray-400">Drag and drop your files here, or</p>
+                        <label for="file_name" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600/80 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer transition-all duration-200">
+                            <i class='bx bx-plus mr-2'></i>
+                            Browse Files
+                            <input type="file" name="file_name" id="file_name" multiple class="hidden"/>
+                        </label>
+                    </div>
+                    
+                    <div id="selected-images" class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+                    
+                    <button type="submit" class="mt-6 inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
+                        <i class='bx bx-upload mr-2'></i>
+                        Upload Files
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-   
-   document.getElementById('file_name').addEventListener('change', function() {
-    var files = this.files;
-    var imageContainer = document.getElementById('selected-images');
-    imageContainer.innerHTML = '<p>All selected image</p>'; // Clear previous images
+    <div class="py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Why Choose ShareSync?</h2>
+                <p class="mt-4 text-gray-400">Experience the future of file sharing</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-700 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class='bx bx-lock-alt text-3xl text-indigo-400'></i>
+                        <h3 class="ml-4 text-xl font-semibold">Secure Sharing</h3>
+                    </div>
+                    <p class="text-gray-400">End-to-end encryption ensures your files remain private and secure during transfer.</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-700 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class='bx bx-time text-3xl text-indigo-400'></i>
+                        <h3 class="ml-4 text-xl font-semibold">Auto-Deletion</h3>
+                    </div>
+                    <p class="text-gray-400">Files are automatically removed after 24 hours, maintaining your privacy and storage space.</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900/50 p-6 rounded-xl border border-gray-700 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class='bx bx-cloud text-3xl text-indigo-400'></i>
+                        <h3 class="ml-4 text-xl font-semibold">Easy Access</h3>
+                    </div>
+                    <p class="text-gray-400">Access your shared files from anywhere, on any device, without installation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        var reader = new FileReader();
+    <div class="py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">How It Works</h2>
+                <p class="mt-4 text-gray-400">Three simple steps to share your files</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-indigo-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class='bx bx-upload text-3xl text-indigo-400'></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">1. Upload</h3>
+                    <p class="text-gray-400">Drag and drop your files or browse to select them</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-indigo-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class='bx bx-link text-3xl text-indigo-400'></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">2. Share</h3>
+                    <p class="text-gray-400">Get a secure link to share with others</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-indigo-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class='bx bx-download text-3xl text-indigo-400'></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">3. Download</h3>
+                    <p class="text-gray-400">Recipients can easily download the shared files</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        reader.onload = function(event) {
-            var img = document.createElement('img');
-            img.src = event.target.result;
-            img.style.maxWidth = '100px'; // Adjust image size as needed
-            img.style.maxHeight = '100px'; // Adjust image size as needed
-            imageContainer.appendChild(img);
-        };
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file_name');
+        const imageContainer = document.getElementById('selected-images');
 
-        reader.readAsDataURL(file);
-    }
-});
+        // Drag and drop functionality
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
 
+        function preventDefaults (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
 
-</script>
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropZone.classList.add('drag-active');
+        }
+
+        function unhighlight(e) {
+            dropZone.classList.remove('drag-active');
+        }
+
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            fileInput.files = files;
+            handleFiles(files);
+        }
+
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+
+        function handleFiles(files) {
+            imageContainer.innerHTML = '';
+            
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.className = 'relative bg-gray-700/50 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center';
+                    
+                    if (file.type.startsWith('image/')) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'w-20 h-20 object-cover rounded';
+                        div.appendChild(img);
+                    } else {
+                        const icon = document.createElement('i');
+                        icon.className = 'bx bx-file text-4xl text-indigo-400';
+                        div.appendChild(icon);
+                    }
+                    
+                    const fileName = document.createElement('p');
+                    fileName.className = 'mt-2 text-xs text-gray-300 truncate w-full text-center';
+                    fileName.textContent = file.name;
+                    div.appendChild(fileName);
+                    
+                    imageContainer.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+    </script>

@@ -34,6 +34,12 @@ app.set('view engine','ejs')
 app.get('/', (req, res) => {
   res.render('index')
 })
+app.get('/login', (req, res) => {
+  res.render('login')
+})
+app.get('/signup', (req, res) => {
+  res.render('signup')
+})
 
 app.get('/view', (req, res) => {
   fs.readdir(path.join(__dirname, 'upload'), (err, files) => {
