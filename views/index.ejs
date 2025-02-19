@@ -1,38 +1,148 @@
 
-    <div class="min-h-screen flex items-center justify-center pt-16 pb-32 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="space-y-8 mb-12">
+<div class="min-h-screen flex items-center justify-center pt-32 pb-32 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+  
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto text-center z-10">
+        <div class="space-y-8 mb-12">
+            <div class="inline-block relative">
+                <span class="inline-block absolute -top-6 -left-6 text-4xl opacity-30 text-indigo-500">
+                    <i class='bx bxs-quote-alt-left'></i>
+                </span>
                 <h1 class="text-5xl md:text-6xl font-extrabold">
-                    Share Files with 
+                    Share Files with
                     <span class="gradient-text">Confidence</span>
                 </h1>
-                <p class="max-w-2xl mx-auto text-xl text-gray-400">
-                    Fast, secure, and ephemeral file sharing. Your files, your privacy, our priority.
-                </p>
+                <span class="inline-block absolute -bottom-6 -right-6 text-4xl opacity-30 text-indigo-500">
+                    <i class='bx bxs-quote-alt-right'></i>
+                </span>
             </div>
-
-            <div class="max-w-3xl mx-auto bg-gray-800/50 backdrop-blur-md p-8 rounded-2xl border border-gray-700">
-                <form class="main_form" action="/upload" method="post" enctype="multipart/form-data">
-                    <div id="drop-zone" class="w-full h-64 border-2 border-dashed border-gray-600 rounded-xl p-12 text-center cursor-pointer hover:border-indigo-500 transition-colors duration-150 pulse-border">
-                        <i class='bx bx-cloud-upload text-6xl text-indigo-400 float-animation'></i>
-                        <p class="mt-4 text-gray-400">Drag and drop your files here, or</p>
-                        <label for="file_name" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600/80 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer transition-all duration-200">
-                            <i class='bx bx-plus mr-2'></i>
-                            Browse Files
-                            <input type="file" name="file_name" id="file_name" multiple class="hidden"/>
-                        </label>
+            <p class="max-w-2xl mx-auto text-xl text-gray-400">
+                Fast, secure, and ephemeral file sharing. Your files, your privacy, our priority.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <div class="flex items-center bg-gray-800/60 px-4 py-2 rounded-full text-sm">
+                    <i class='bx bx-shield-quarter text-indigo-400 mr-2'></i>
+                    End-to-End Encryption
+                </div>
+                <div class="flex items-center bg-gray-800/60 px-4 py-2 rounded-full text-sm">
+                    <i class='bx bx-timer text-indigo-400 mr-2'></i>
+                    Auto-Deletion (24h)
+                </div>
+                <div class="flex items-center bg-gray-800/60 px-4 py-2 rounded-full text-sm">
+                    <i class='bx bx-data text-indigo-400 mr-2'></i>
+                    Up to 2GB Per File
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto bg-gray-800/50 backdrop-blur-md p-8 rounded-2xl border border-gray-700 shadow-xl relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/0 via-indigo-600/5 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <form class="main_form relative z-10" action="/upload" method="post" enctype="multipart/form-data">
+                <div id="drop-zone" class="w-full h-64 border-2 border-dashed border-gray-600 rounded-xl p-12 text-center cursor-pointer hover:border-indigo-500 transition-colors duration-150 pulse-border bg-gray-900/30">
+                    <i class='bx bx-cloud-upload text-6xl text-indigo-400 float-animation'></i>
+                    <p class="mt-4 text-gray-400">Drag and drop your files here, or</p>
+                    <label for="file_name" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600/80 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer transition-all duration-200">
+                        <i class='bx bx-plus mr-2'></i>
+                        Browse Files
+                        <input type="file" name="file_name" id="file_name" multiple class="hidden"/>
+                    </label>
+                </div>
+                <div id="selected-images" class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+                <div class="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4">
+                    <div class="flex items-center space-x-2 text-sm text-gray-400">
+                        <i class='bx bx-lock-alt'></i>
+                        <span>Files auto-delete after 24 hours</span>
                     </div>
-                    
-                    <div id="selected-images" class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
-                    
-                    <button type="submit" class="mt-6 inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
+                    <button type="submit" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 shadow-lg shadow-indigo-600/20">
                         <i class='bx bx-upload mr-2'></i>
                         Upload Files
                     </button>
-                </form>
+                </div>
+            </form>
+        </div>
+        
+        <div class="mt-12 text-gray-400 flex flex-col items-center">
+            <p class="mb-4 text-sm">Trusted by thousands of users worldwide</p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="flex items-center">
+                    <i class='bx bxs-star text-yellow-500'></i>
+                    <i class='bx bxs-star text-yellow-500'></i>
+                    <i class='bx bxs-star text-yellow-500'></i>
+                    <i class='bx bxs-star text-yellow-500'></i>
+                    <i class='bx bxs-star-half text-yellow-500'></i>
+                    <span class="ml-2 text-sm">4.8/5 Rating</span>
+                </div>
+                <div class="flex items-center">
+                    <i class='bx bx-shield-quarter text-green-500'></i>
+                    <span class="ml-2 text-sm">100% Secure</span>
+                </div>
+                <div class="flex items-center">
+                    <i class='bx bx-check-shield text-blue-500'></i>
+                    <span class="ml-2 text-sm">GDPR Compliant</span>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<section class="py-20 bg-gradient-to-r from-gray-900 via-indigo-900/20 to-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gray-800/50 backdrop-blur-md border border-gray-700 rounded-2xl overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to share files securely?</h2>
+                    <p class="text-gray-300 mb-8 text-lg">Join thousands of users who trust ShareSync for their file sharing needs. Sign up now for free!</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/signup" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150 shadow-lg shadow-indigo-600/20">
+                            <i class='bx bx-user-plus mr-2'></i>
+                            Get Started
+                        </a>
+                        <a href="#features" class="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-base font-medium rounded-lg text-gray-200 hover:bg-gray-700/50 transition duration-150">
+                            <i class='bx bx-info-circle mr-2'></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-6 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-700/50 backdrop-blur-md p-4 rounded-lg border border-gray-600 transform hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                                <i class='bx bx-lock text-3xl text-indigo-400 mb-2'></i>
+                                <h3 class="text-lg font-semibold mb-1">End-to-End Encryption</h3>
+                                <p class="text-sm text-gray-400">Your files remain private and secure</p>
+                            </div>
+                            <div class="bg-gray-700/50 backdrop-blur-md p-4 rounded-lg border border-gray-600 transform hover:-translate-y-2 transition-transform duration-300 shadow-xl mt-6">
+                                <i class='bx bx-timer text-3xl text-indigo-400 mb-2'></i>
+                                <h3 class="text-lg font-semibold mb-1">Auto-Deletion</h3>
+                                <p class="text-sm text-gray-400">Files removed after 24 hours</p>
+                            </div>
+                            <div class="bg-gray-700/50 backdrop-blur-md p-4 rounded-lg border border-gray-600 transform hover:-translate-y-2 transition-transform duration-300 shadow-xl">
+                                <i class='bx bx-globe text-3xl text-indigo-400 mb-2'></i>
+                                <h3 class="text-lg font-semibold mb-1">Access Anywhere</h3>
+                                <p class="text-sm text-gray-400">Works on all your devices</p>
+                            </div>
+                            <div class="bg-gray-700/50 backdrop-blur-md p-4 rounded-lg border border-gray-600 transform hover:-translate-y-2 transition-transform duration-300 shadow-xl mt-6">
+                                <i class='bx bx-check-shield text-3xl text-indigo-400 mb-2'></i>
+                                <h3 class="text-lg font-semibold mb-1">No Registration</h3>
+                                <p class="text-sm text-gray-400">Share files without an account</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 
     <div class="py-24 bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,75 +217,87 @@
     <script>
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('file_name');
-        const imageContainer = document.getElementById('selected-images');
-
-        // Drag and drop functionality
+        const selectedImages = document.getElementById('selected-images');
+        
+        fileInput.addEventListener('change', function() {
+            displaySelectedFiles(this.files);
+        });
+        
+        function displaySelectedFiles(files) {
+            selectedImages.innerHTML = '';
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const filePreview = document.createElement('div');
+                filePreview.className = 'bg-gray-800 rounded-lg p-3 flex items-center';
+                
+                const fileIcon = document.createElement('i');
+                fileIcon.className = 'bx bx-file text-indigo-400 text-2xl mr-2';
+                
+                const fileInfo = document.createElement('div');
+                fileInfo.className = 'overflow-hidden';
+                
+                const fileName = document.createElement('p');
+                fileName.className = 'text-sm font-medium truncate';
+                fileName.textContent = file.name;
+                
+                const fileSize = document.createElement('p');
+                fileSize.className = 'text-xs text-gray-400';
+                fileSize.textContent = formatFileSize(file.size);
+                
+                fileInfo.appendChild(fileName);
+                fileInfo.appendChild(fileSize);
+                
+                filePreview.appendChild(fileIcon);
+                filePreview.appendChild(fileInfo);
+                
+                selectedImages.appendChild(filePreview);
+            }
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+        
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             dropZone.addEventListener(eventName, preventDefaults, false);
         });
-
-        function preventDefaults (e) {
+        
+        function preventDefaults(e) {
             e.preventDefault();
             e.stopPropagation();
         }
-
+        
         ['dragenter', 'dragover'].forEach(eventName => {
             dropZone.addEventListener(eventName, highlight, false);
         });
-
+        
         ['dragleave', 'drop'].forEach(eventName => {
             dropZone.addEventListener(eventName, unhighlight, false);
         });
-
-        function highlight(e) {
-            dropZone.classList.add('drag-active');
+        
+        function highlight() {
+            dropZone.classList.add('border-indigo-500');
+            dropZone.classList.add('bg-indigo-900/10');
         }
-
-        function unhighlight(e) {
-            dropZone.classList.remove('drag-active');
+        
+        function unhighlight() {
+            dropZone.classList.remove('border-indigo-500');
+            dropZone.classList.remove('bg-indigo-900/10');
         }
-
+        
         dropZone.addEventListener('drop', handleDrop, false);
-
+        
         function handleDrop(e) {
             const dt = e.dataTransfer;
             const files = dt.files;
             fileInput.files = files;
-            handleFiles(files);
-        }
-
-        fileInput.addEventListener('change', function() {
-            handleFiles(this.files);
-        });
-
-        function handleFiles(files) {
-            imageContainer.innerHTML = '';
-            
-            Array.from(files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const div = document.createElement('div');
-                    div.className = 'relative bg-gray-700/50 backdrop-blur-sm rounded-lg p-3 flex flex-col items-center';
-                    
-                    if (file.type.startsWith('image/')) {
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.className = 'w-20 h-20 object-cover rounded';
-                        div.appendChild(img);
-                    } else {
-                        const icon = document.createElement('i');
-                        icon.className = 'bx bx-file text-4xl text-indigo-400';
-                        div.appendChild(icon);
-                    }
-                    
-                    const fileName = document.createElement('p');
-                    fileName.className = 'mt-2 text-xs text-gray-300 truncate w-full text-center';
-                    fileName.textContent = file.name;
-                    div.appendChild(fileName);
-                    
-                    imageContainer.appendChild(div);
-                };
-                reader.readAsDataURL(file);
-            });
+            displaySelectedFiles(files);
         }
     </script>
+    
+    

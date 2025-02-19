@@ -22,15 +22,97 @@
                     <a href="/view" class="text-gray-300 hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium flex items-center transition-colors">
                         <i class='bx bx-folder-open mr-2'></i>
                         View Files
+                    </a>                    
+                    <a href="/login" class="inline-flex items-center px-3 py-2 border border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                        <i class='bx bx-log-in mr-1'></i> Login
                     </a>
-                    <a href="/login" class="bg-indigo-600/80 backdrop-blur-sm text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-150 flex items-center">
-                        <i class='bx bx-log-in-circle mr-2'></i>
-                        Login
+                    <a href="/signup" class="inline-flex items-center px-3 py-2 bg-indigo-600 border border-transparent rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-600/20">
+                        <i class='bx bx-user-plus mr-1'></i> Sign Up
                     </a>
                 </div>
             </div>
         </div>
     </nav>
     <%- body  %>
+
+
+
+<footer class="bg-gray-800 border-t border-gray-700">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+         
+            <div class="col-span-1">
+                <div class="flex items-center mb-4">
+                    <i class='bx bx-share-alt text-indigo-400 text-3xl'></i>
+                    <span class="ml-2 text-xl font-bold text-gray-100">ShareSync</span>
+                </div>
+                <p class="text-gray-400 mb-4">Fast, secure, and ephemeral file sharing. Your privacy is our priority.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">
+                        <i class='bx bxl-twitter text-xl'></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">
+                        <i class='bx bxl-facebook-circle text-xl'></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">
+                        <i class='bx bxl-github text-xl'></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">
+                        <i class='bx bxl-linkedin-square text-xl'></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-span-1">
+                <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="/" class="text-gray-400 hover:text-indigo-400 transition-colors">Home</a></li>
+                    <li><a href="/view" class="text-gray-400 hover:text-indigo-400 transition-colors">View Files</a></li>
+                    <li><a href="/login" class="text-gray-400 hover:text-indigo-400 transition-colors">Login</a></li>
+                    <li><a href="/signup" class="text-gray-400 hover:text-indigo-400 transition-colors">Sign Up</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-span-1">
+                <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="/privacy" class="text-gray-400 hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="/terms" class="text-gray-400 hover:text-indigo-400 transition-colors">Terms of Service</a></li>
+                    <li><a href="/gdpr" class="text-gray-400 hover:text-indigo-400 transition-colors">GDPR Compliance</a></li>
+                    <li><a href="/cookies" class="text-gray-400 hover:text-indigo-400 transition-colors">Cookie Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-span-1">
+                <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Contact Us</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center text-gray-400">
+                        <i class='bx bx-envelope mr-2'></i>
+                        <a href="mailto:support@sharesync.com" class="hover:text-indigo-400 transition-colors">support@sharesync.com</a>
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <i class='bx bx-map mr-2'></i>
+                        <span>123 Tech Street, San Francisco, CA</span>
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <i class='bx bx-phone mr-2'></i>
+                        <span>+1 (555) 123-4567</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">© 2025 ShareSync. All rights reserved.</p>
+            <div class="mt-4 md:mt-0">
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-400 hover:text-indigo-400 transition-colors">Help Center</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-indigo-400 transition-colors">Status</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-indigo-400 transition-colors">FAQs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
